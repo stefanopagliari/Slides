@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/stefano.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Concepts
+## Definition and Operationalization
+
+IP3017 UG Dissertation
+
+*Stefano Pagliari*
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Research Process
+
+<img src="Resources/Attachments/Research Process Modified.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Concepts
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### What is a concept?
+
+> Halperin and Heath: “*Term applied to a collection or class of things that are to be regarded alike, because they either share a common characteristic of feature or are instances of some general type of behavior*”
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Why do we care about concepts?
+
+- Gerring (2001): “*the most basic questions of social science: What are we talking about?*”
+- Leeper (2016): “*We need to know what we’re talking about before we can theorize causal relationships or study something empirically*”
+- Halperin and Heath (2017): “*The terms we use must mean what we want them to mean and be formulated so that others will understand them in precisely the way we want them to be understood*”
+
+-- 
+
+### Contested Concepts
+
+- Researchers frequently use different concepts to understand the same situation.
+	- E.g. ‘*terrorist*’ or ‘*freedom fighter*’?  
+	- E.g. ‘*revolution*’ or ‘*coup*’?  
+	- E.g. ‘*democratic act of self-determination*’ vs. ‘*sedition*’?
+	- E.g. ‘*nationalist fanatics*’ vs. ‘*patriotic citizens*’?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### From Theoretical Explanation to Empirical Analysis
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->In order to investigate empirically the explanation for a political phenomenon, we will have to observe and measure the presence of the concepts into the empirical world
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Empirical researchers must  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Define the concepts they use in their hypotheses (**conceptualization**)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Decide how to measure the presence, absence or amount of these concepts in the real world (**operationalization**)
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Differences in how we define and operationalize our concepts can lead to totally different conclusions.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## How do Define Concepts
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Specify a set of “constitutive dimensions” of the concept
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Not causes or effects  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Not measures of the concept
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" --> Are these **necessary**? Are they **joint sufficient**?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example: Defining Democracy
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->‘Procedural minimum’ definition of ‘democracy:
+	1. Contested elections
+	2. Full suffrage
+	3. Guarantees of civil liberties (e.g.freedom of speech, assembly and associations)
+	4.  Elected government has effective power to govern
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->“Diminished” types of democracy  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->1, 3, 4: **limited** democracy  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->2, 3, and 4: **de facto** one party-democracy 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->1, 2, and 4: **illiberal** democracy  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->1, 2, and 3: **military-dominated** democracy
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example: Defining Terrorism (Leeper)
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Classical Definition:
+	1.  Illegal use of violence or threat...
+	2. ...carried out by individual or group...
+	3. ...in service to a political agenda...
+	 4. ...with the Intention to create climate of fear or insecurity
+    
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Sufficient features?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->1,3,4 (allows state actions to be terrorism)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->2,3,4 (allows non-violence to be terrorism)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->1,2,4 (allows criminal activity to be terrorism)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->1,2,3 OR 1,2,4 (can be political or fear- inducing)
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## From Conceptual to Operational Definitions
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Even when there is consensus about how a particular concept should be defined, researchers often will disagree about whether, where or to what degree it is occurring.
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->To study a concept empirically we identify for each concept precise visible phenomena that can be directly measured.
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Operationalization**: the process of translating a concept into data
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->It specifies what empirical indicators or data will enable us to determine the presence or absence of the variable or measure its extent
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### From Concepts to Operationalization
+
+
+<div class="mermaid">
+flowchart TB
+	Concept --> Attribute_A
+	Concept --> Attribute_B
+	Concept --> Attribute_C
+	Attribute_A --> Measure_A
+	Attribute_B --> Measure_B
+	Attribute_C --> Measure_C
+	subgraph one[Concept Definition]
+	Attribute_A   
+	Attribute_B
+	Attribute_C      
+	end
+	subgraph two[Operationalization]
+	Measure_A   
+	Measure_B
+	Measure_C      
+	end
+
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example: Operationalization of Democracy
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Conceptual Definition 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->1) Competition  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->2) Participation
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Operational definition
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->1) Competition: E.g. difference in vote share between the winning party in an election and the second party in that election.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->2) Participation: E.g. official election returns that are published after all the votes have been counted
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Reliability
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Reliability** indicates the consistency of the results when using a particular indicator
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Reliability may be compromised when indicators require a subjective interpretation of events.
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Intercoder reliability = test to determine the degree of reliability for an indicator.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Validity
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Validity** refers to the degree of correspondence between the measure and the concept it is thought to measure.
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->E.g. asking people if they voted in the last election overestimate turnout by several percentage points.
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->E.g. party identification as a measure of ideology
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Validity and Reliability
+<img src="https://nesslabs.com/wp-content/uploads/2020/07/mental-models-validity-reliability.png" alt="Validity and reliability of mental models" style="object-fit: scale-down">
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Measurement
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### From Concepts to Measurement
+
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Concept**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->What is our conceptual definition?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->E.g. How do we define corruption?  
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Operational Definition**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->What is our operational definition?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->What indicators can we use to observe our definition of corruption?
+- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->**Measurement**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->How can we measure our indicators?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->What data sources can we use to measure our indicators of corruption?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example: Measuring Corruption (Halperin and Heath 2017)
+
+
+<div class="mermaid">
+flowchart LR
+	Concept[Misuse of public position for private gain]
+	Attribute_A[Perceptions of corruption by business people]
+	Attribute_B[Experience of corruption by public]
+	Attribute_C[Prosecution of Public Officials]
+	Indicator_A[Expert Survey]
+	Indicator_B[Public Survey]
+	Indicator_C[Court Records]
+
+	Concept --> Attribute_A
+	Concept --> Attribute_B
+	Concept --> Attribute_C
+	Attribute_A --> Indicator_A
+	Attribute_B --> Indicator_B
+	Attribute_C --> Indicator_C
+	subgraph one[Conceptual Definition]
+	Concept
+	end
+	subgraph two[Operational Definition]
+	Attribute_A   
+	Attribute_B
+	Attribute_C
+	end
+	subgraph Indicators
+	Indicator_A
+	Indicator_B
+	Indicator_C
+	end
+
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Types of Measures
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Nominal Measurement
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Involves placing observations into discrete categories that do not have an inherent order 
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Binary variable is type of nominal variable
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### E.g. Binary Measure of Democracy
+<iframe src="https://ourworldindata.org/grapher/share-democracies-nondemocracies-bmr" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Ordinal measurement
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Involves placing observations into categories for which the ordering has meaning.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<iframe src="https://ourworldindata.org/grapher/share-democracies-autocracies-row?country=~OWID_WRL" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Interval Measurement
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Distance between values on a variable can be assessed
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### VDem Measure of Democracy
+<iframe src="https://ourworldindata.org/explorers/democracy?country=ARG~AUS~BWA~CHN&Dataset=Varieties+of+Democracy&Metric=Electoral+democracy&Sub-metric=Main+index&hideControls=true" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Measures vs. Indicators
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Measures**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->variables that represent concepts quitedirectly
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->e.g. age in years, region of residence, literacy rate per country
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Indicators**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->variables that represent concepts less directly
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->e.g. years in school as an indicator of level of education
+- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->**Composite indicators/indexes**: 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->Combinations of variables used to represent broader concepts  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->E.g. UNDP Human Development Index
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Activity: Operationalization of Concepts
+
+- Think about the following concepts:
+	- Political violence  
+	- Globalization  
+	- Political knowledge
+	- Economic development
+- Operationalize each concept by identifying
+	- an indicator
+	- the range of possible values the resultant variable could have.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Activity: Hypothesis Testing 
+
+- For each of the hypotheses below, explain how you could measure each variable.
+	1. Wealthy individuals are more likely to support tax cuts than other voters.
+	2. An increase in the number of nongovernmental organizations operating in an authoritarian state increases the rate at which the state democratizes.
+	3. Access to social media increases the information that people have concerning candidates.
+</div></script></section></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+			]
+		},
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":false,"transition":"slide","transitionSpeed":"default"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
