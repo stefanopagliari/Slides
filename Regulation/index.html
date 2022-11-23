@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/stefano.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## The Comparative Political Economy of Economic Regulation
+
+Stefano Pagliari
+
+IP2031 Comparative Political Economy
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Outline
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Introduction to **Economic Regulation**  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Regulation vs. other types of public policies
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Evolution of Regulation
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Types of Regulation
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->**Explaining** Regulation 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Public Interest
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Interest Groups  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->Principal-Agent 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->Globalization
+	- &shy;<!-- .element: class="fragment" data-fragment-index="10" -->Ideas
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Type of Public Policy Intervention in the Economy (Majone 1997)
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Macroeconomic Management**:
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Measures to achieve economic growth and employment
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Instrument: monetary and fiscal policy
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Income Redistribution**:
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Transfer of resources from one group to another one - &shy;<!-- .element: class="fragment" -->provision of welfare
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Instrument: taxing and spending
+- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->**Market Regulation**:
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->Mechanisms of public control over behavior of market actors
+	- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->Instrument: rule making
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Types of Regulation
+<img src="Resources/Attachments/Environmental Regulation.png" alt="" style="width: 500px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Command and Control
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Forcing regulated entities to take specific actions or to prohibit certain forms of conduct
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Obligations backed by administrative enforcement and penal sanctions
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Example: Emission Standards for Vehicles
+
+**![EURO Emission standards and their meanings](https://motoreu.com/upload/web/blog/original/euro-emissions-motoreu_5a2290f30ce6c.jpg)**
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Costs of Command and Control Regulations
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->High costs of designing standards
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Enforcement costs:** Cost of enforcing the standards
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Compliance costs:** costs that standards impose on the regulated industry
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Error costs:** regulators are not error proofs
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->**Regulatory Avoidance:** Firms seek to minimize the costs imposed by regulation in a way that could reduce their impact
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Market-based Regulation
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Focus on outcomes rather than inputs, seek to give firms incentives to adopt cost‐effective solutions
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Incentive-based Regimes
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Taxes or rewards (grants, loans, subsidies) used to influence conduct of market actors
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Example: Congestion charge to reduce traffic
+<img src="Resources/Attachments/Pasted image 20221122131335.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Market-harnessing Controls
+- Governments create markets by setting competition law, using franchise auctions, issuing property rights
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Example: Carbon Credit
+
+<img src="Resources/Attachments/Carbon Credit.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Disclosure Regulation
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Requirement for disclosure of information but not necessarily any substantive change in the behavior of the firm
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Example: Food Hygiene Rating
+
+<img src="Resources/Attachments/Pasted image 20221121211434.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Self-Regulation
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Definition: When a group of firms exerts control over its own membership and their behavior
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Example: Forest Stewardship Council
+
+<img src="Resources/Attachments/Pasted image 20221122132451.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Public actor and Self-Regulation
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Co-regulation** (Ayres and Braithwaite 1992): Industry-association self-regulation with some oversight and/or ratification by government
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Self-regulation as the response to the **threat of formal regulation** from public actors
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Management-based regulation:** 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Delegation of risk control functions to the company’s managers
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Regulator’s role in the auditing, monitoring, and incentivizing of risk management systems of corporations
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Evolution of Regulatory Policy
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Privatization and Regulation
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->19th century: development of public utilities (gas, electricity, water, the railways, the telegraph).
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->1970s-onward: public monopolies in telecommunications and energy replaced by private ownership and free market
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->States re-regulates the now-liberalized markets with less intrusive tools.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Vogel (1996): *"freer markets, more rules"*
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Rise of the Regulatory State (Majone 1994)
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Decrease in the use of taxation, spending, and other forms of direct forms of state intervention in the economy
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Increase in the importance of rule-making to achieve economic policy objectives
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Transformation in the way economy is organized: new model of ‘**regulatory capitalism**’ (Levi-Faur 2005).
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Rise of Independent Regulatory Agencies
+<img src="Resources/Attachments/Pasted image 20221121211021.png" alt="" style="object-fit: scale-down">
+
+
+### Rise of Independent Regulatory Agencies
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Regulators increasingly operate outside the line of hierarchical control by the central government.
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Single-purpose units with their own budgets operating outside the normal executive branch
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->IRAs have existed since long in the US (e.g. New Deal). Most created in the 1980s/1990s in Europe
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Variations of Regulatory Policies Across Countries
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Regulatory Policy in US
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Long tradition of independent regulatory agencies (Interstate Commerce Commission of 1887, Federal Trade Commission 1914)
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->1970s: emergence of regulation on health, safety, environment
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Late 1970s: deregulatory push to reduce regulatory burdens
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Regulatory Policy in the UK
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->XXth century: Self-regulation in financial markets, legal and medical professions, universities. 
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Recent decades: replacement of self‐regulation with statutory regulation by a specialised agency
+	- **Charities** (Charity Commission)
+	- **Education** (Ofqual, Ofsted, Office for Students)
+	- **Environment** (Environment Agency)
+	- **Finance** (Finance Conduct Authority, Prudential Regulatory Authority, Payment Systems Authority, Pensions Regulator, Financial Reporting Council)
+	- **Health** (General Medical Council, UK Health Security Agency )
+	- **Transport** (Civil Aviation Authority, Office of Rail and Road)
+	- **Utilities** (OfCom, OfGen, OfWar)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+#### Impact of Brexit over UK Regulation
+
+<img src="Resources/Attachments/Pasted image 20221122133619.png" alt="" style="width: 500px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Regulatory Policy in EU
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Impact of EU rules on national regulations on  economic, environmental and social policy domains
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->National diversity (stronger ‘revolving door’ between IRAs and the private sector in UK than France, Germany and Italy, whilst Italy has higher party politicization of appointments to IRAs)
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Theory: what explains regulation?
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Public Interest Theories of Regulation
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Market failure** provides the rationale for introducing regulation
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Market Power**: Where one firm (monopoly) or a few firms (oligopoly or cartel) can raise price above the competitive level
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->E.g. anti-trust; regulation of utilities 
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Externalities**:  Activities impose losses on third parties which the market does not take into account 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->E.g. Pollution
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->**Asymmetric Information** one party cannot distinguish between two goods that have different costs or risks
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->E.g. Pharmaceuticals rules
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Rationales for Regulating Markets
+
+<img src="Resources/Attachments/Pasted image 20221121211625.png" alt="" style="width: 600px; object-fit: fill">
+
+<small class="caption">Source: Baldwin, Cave and Lodge (2011)</small>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Public Choice Theories of Regulation
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Public Interest**  Theory of Regulation
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Regulators = disinterested actors engaged in the pursuit of some public interest.
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Public Choice** Theory of Regulation
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->also known as "private interest" or "economic" theories of regulation
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Assumption: actors seek to maximize their own (material) self-interest.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Regulatory policies to deviate from public interest
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Stigler (1971): “Regulatory Capture”
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Regulated industry has incentive to influence the regulator so as to benefit from a ‘regulatory rent’
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->e.g. Entry barrier to limit competition
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Compact, organized interests **(producers)** will be better served by regulation than the (more diffused, less organized) **consumers**.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Becker (1983): Competition among pressure groups
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Multiple groups** organize to exert pressure on the political process to grant them benefit
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Regulatory equilibrium** represents a balancing of marginal pressure exerted by winners and losers
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->As the regulation moves away from the efficient level, **deadweight loss** (winner's gain and loser's loss) increases
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Deadweight loss from regulatory intervention will trigger **countervailing interests to mobilize** to contest the acquired rents.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+###  Public Choice and De-Regulation
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Rise in deregulation in the 1970s/1980s (e.g. airline industry, telecommunications)
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Public choice explanations
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Inefficient regulators** (e.g. entry restrictions) will result in competition taking place in other dimensions and result in a decline of profits
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Producers may think they can better promote their economic interests in an **unregulated** market
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->increase deadweight costs from regulation lead to greater pressures from **taxpayers**.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Regulators and Politicians
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Principal-Agent Model
+
+
+<div class="mermaid">
+flowchart LR
+A["Principal (Politicians)"]
+B["Agent (Regulators)"]
+A -- Self Interests --> A
+A -- delegate authority --> B
+B -- make decision --> A
+
+B -- Self Interests --> B
+
+
+</div>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Principal–Agent model
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Some actor (or group of actors) called an agent undertakes an action on behalf of another actor (or group of actors) called a principal
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Agents do not always follow the preferences of their principals (Thatcher and Stone Sweet 2002).
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Regulators maintain discretion in key policy-areas
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Explaining Creation of Independent Regulatory Agencies
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Information asymmetry**: technical complexity of regulation requires experts
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Credible commitment:** delegation to experts increase the credibility of policy commitments (Majone 1997).
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Blame avoidance:** political actors delegate tasks where these are politically embarrassing or damaging (Fiorina 1986)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Political Control over Independent Agencies: 
+
+Three devices (McCubbins, Noll & Weingast 1987)
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->“**Police patrols**”: Specific units that focus on controlling regulators 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->E.g. parliamentary committees, audit units
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->“**Fire alarm**”: Politicians rely on interest groups and citizens to alert them on regulatory agency’s activities
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->“**Procedural rules**” to ensure that regulators will generate decisions in line with legislative intent.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Requirement to give advance notice before adopting new policies
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Requirement to solicit feedback
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Requirement to provide explain link between evidence and decisions
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Preferences of Regulators
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Bureaucratic Politics:** motivations of regulators may include
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->to maximize agency **budgets**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->to maximize the political **influence** and **scope of competencies** of the agency
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->to maintain their **jobs** (Wilson 1980)
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Globalization and Regulation
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Hypothesis: **Global Markets and Deregulation**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Technological advances provide industry with new ways to evade regulation and render existing regulations obsolete.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Globalization made it more difficult for governments to control industry behavior and create regulatory “**race to the bottom**”
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Vogel (1996): the deregulation revolution that wasn’t
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->“*The universal logic of market forces has not compelled governments to respond in a particular, deregualtory way. In fact, these governments have responded to similar pressures in remarkably different ways*”
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Ideas and Regulation
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Vogel (1996): regulation influenced by dominant beliefs about the proper scope, goals, and methods of government intervention in the economy, and about how this intervention affects economic performance.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example: Deregulation under Reagan & Thatcher 
+
+<img src="https://ichef.bbci.co.uk/images/ic/480x270/p0by5dxx.jpg" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example: Behavioral economics and Regulation
+
+<img src="Resources/Attachments/Pasted image 20221122160545.png" alt="" style="width: 500px; object-fit: fill">
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Conclusion
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Regulation is a necessary condition for the functioning of the market, but it is also influenced by political and social values
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Variations across countries/issues over 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Type of regulation  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Institutional arrangement
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Key elements influencing regulation  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Interest group pressures  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Relationship between regulators and politicians
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->Ideas
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+	      RevealPointer,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"fade","transitionSpeed":"slow"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
