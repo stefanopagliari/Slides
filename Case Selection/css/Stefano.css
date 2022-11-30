@@ -381,14 +381,3 @@ content overflows and would otherwise be hidden.
 .reveal:not(.overview) .slides .future {
     height: 0;
 }
-
-
-/*********************************************
- * MERMAID
- *********************************************/
-.mermaid svg {
-    height: 100%;
-    width: 600px;
-    /*max-height: 600px;
-    max-width: 500px;*/
-}
