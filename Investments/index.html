@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/stefano.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Comparative Political Economy of Investments
+
+Stefano Pagliari
+
+IP2031 - Comparative Political Economy
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Outline
+- Foreign Direct Investments (FDI)
+	- What are they?
+	- Key Trends in FDIs
+- What determines FDI?
+	- Economic Fundamentals
+	- Investment Policies
+	- Bargain between MNCs and Host Countries
+	- Political Regimes
+	- Domestic Interests
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Introduction to Foreign Direct Investments
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Definition of Foreign Direct Investments
+
+OECD: “*Direct investment is a category of **cross-border investment** made by a resident in one economy with the objective of establishing a **lasting interest in an enterprise** that is resident in an economy other than that of the direct investor. [...] The objectives of direct investment are different from those of **portfolio investment** whereby investors do not generally expect to influence the **management of the enterprise**”*.
+<img src="Resources/Attachments/Pasted image 20221125093154.png" alt="" style="width: 150px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Direct Foreign Investment and Multinational Corporations
+ - &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Multinational Corporation** (MNC) is a firm that that owns or controls production of goods or services in at least one country other than its home country. 
+ - &shy;<!-- .element: class="fragment" data-fragment-index="2" -->A FDI by a MNC is the **purchase of physical assets** or of the **ownership of a company** in another country by a MNCs.
+ - &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Horizontally**-integrated MNC: company establishes the same type of business operation in a foreign country as it operates in its home country (e.g. car manufacturer).
+ - &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Vertically** integrated MNC: when the supply chain in the home country is linked to that of the host country (e.g. supplier of inputs, distributor in another country)
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Trends in Foreign Direct Investments
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Global FDI Stock Today 
+ 
+<img src="Resources/Attachments/FDI Stock.png" alt="" style="width: 800px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Where are FDI going?
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Developed countries: until 1980s, US, Europe and Japan attracted more than ¾ of the FDI
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Developing countries
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->After WW2: restrictions to FDI in place in the earlier post-War decades
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->1980s: liberalization of FDI in most countries
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Share of total world FDI: from ¼ in 1980 to ½ today
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->China: half of all FDI into East Asia. 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Africa: small percentage of total FDI in the developing world
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Top FDI Host Economies
+<img src="Resources/Attachments/Pasted image 20221125113011.png" alt="" style="width: 350px; object-fit: fill">
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## What Determines Foreign Direct Investments in a country?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Economic Conditions in Host Country
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Low cost/highly skilled labour
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Large and growing domestic market 
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Access to raw materials
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Policies
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->(Lack of) **Investment Restrictions** 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Entry Barriers
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Operational Restrictions (e.g. requirements to establish joint venture with domestic firms)
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Incentives**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Tax Incentives
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Lax Regulations
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Special Economic Zones
+- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->**International Treaties** 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->Preferential Trade Agreements; 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="10" -->Bilateral Investment Treaties
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Investment Restrictions by Country
+
+<iframe src="https://data.oecd.org/chart/6TXm" loading="lazy" style="width: 100%; height: 500px; border: 0px none;"></iframe>
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Political Risk
+- Pandya (2016)*“Political risk describes host policy makers’ propensity to expropriate from MNCs by implementing unfavorable policies ex post, such as tax increases and more onerous regulatory burdens. In extreme cases, policy makers nationalize MNC assets.”*
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Obsolescing Bargain Theory
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Interaction between **MNC** and **Host Government**
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Before the Investment**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Host government seek to attract MNCs
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Host government offer to MNCs concessions to make the investment lucrative (e.g. tax holidays, regulatory change)
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->**After the Investment**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Host government can renege on its agreement with the MNC (e.g. renegotiated contracts, higher taxes, expropriation)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Relatively immobile nature of the investment means that the investors cannot easily pull out once they made sunk costs
+- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->**Implications:**  governments thus must make credible commitments to FDI investors prior to the arrival of any FD
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Democracy and Foreign Direct Investments
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### **Democracy Increases Political Risk**
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Policy Instability** as result of elections, change of governments, and political business cycles
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Avenues for **domestic firms to lobby** against foreign investors
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Redistributive Bias** (Meltzer-Richard Model): politicians have incentive to increase taxes or expropriate foreign investors
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### **Democracy Decreases Political Risk**
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Policy Stability:** greater number of veto players make expropriation more difficult
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Avenues for **foreign investors to influence** policymaking process
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Audience Costs:** politicians lose support as a result of the negative economic consequences of alienating investors
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Evidence on Democracy and Foreign Direct Investments
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Different works have found evidence that democratic regimes attract more FDIs or reduce political risk for foreign investors:
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Jensen (2003): "*a democratic country will receive an added 0.61% as a percentage of GDP which amounts to an increase of over 45% of FDI inflows*."
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Other studies instead have concluded that regime type makes little difference for FDI inflows (Biglaiser and DeRouen 2006)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Li and Resnick (2003) find that property rights protection encourage FDI inflows but *"after controlling for their positive effect through property rights protection, democratic institutions reduce FDI inflows"*.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Institutions and Foreign Direct Investments
+
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Different studies find that regime type is less important than factors directly related to investment risk (Jensen 2003; Jensen 2006; Li 2006; Li 2009; Li and Resnick 2003).
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Courts and Rule of Law**:  Strong evidence that strong courts and adherence to the rule of law are crucial elements in attracting foreign investments (Biglaiser and DeRouen 2006; Li and Resnick 2003).
+	- Li (2006) find that countries with strong rule of law offer lower tax breaks to multinational corporations.
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Checks and Balances**
+	- Henisz (2002) finds that in countries with concentrated political power, firms are more likely to form joint ventures with local firms to protect against expropriation
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Domestic Interests and Foreign Direct Investments
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Focus on the distributional consequences of FDIs
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Workers and Foreign Direct Investment
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Demand for Labour**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Workers support FDI that increase demand for local labour, 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Workers oppose FDI that that supplant the labour pool (e.g. introduce robotization)
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**FDI and Skills**: 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->MNCs pay higher wages and demand more skilled labour than domestic firms
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->FDI support increase with skill level (proxied by education)
+- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->**FDI and Job Security**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->MNCs can more readily adjust production activities across borders in response to changing market conditions
+	- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->Owen (2015) finds that FRDI restrictions are more prevalent in countries with high labor union density.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Local Firms and Foreign Direct Investment
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->"Triple Alliance": Evans (1979) found collusion between host country, domestic business and foreign investors to exploit domestic workers
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Other scholars argue that local firms prefer ownership restrictions to to avoid competing with foreign banks (Pepinski 2013)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Partisanship and Foreign Direct Investments
+
+- **Parties** in the host countries can be expected to be influenced by the demands of their core constituents (labour vs. capital)
+	- pro-labor **(left)** governments would encourage the inflow of investments that increase demand for local labour; 
+	- pro-capital **(right)** governments would promote the entry of investment that substitutes for labor. 
+- Pinto and Pinto (2008) find evidence that  "foreign investment systematically flows into different sectors of the host economy under left- and right-leaning incumbents"
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Conclusion
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Political Economy explores
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->why do some countries attract more FDIs than others?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->why do countries encourage/restrict FDIs?
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Key explanation
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Political Regimes
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Institutions
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Domestic Interests
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->Partisanship
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+	      RevealPointer,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"fade","transitionSpeed":"slow"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
