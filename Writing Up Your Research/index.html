@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/stefano.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Writing-Up Your Research Paper
+
+Stefano Pagliari
+
+IP3017
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+##
+</div> Outline
+
+- Structure of the proposal
+- How to write
+	- Introduction
+	- Literature Review
+	- Argument
+	- Research Strategy
+	- Findings
+	- Conclusion
+- Additional Writing Tips
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Structure of the Dissertation Proposal
+
+1. Title
+3.  Introduction
+4.  Literature Review
+5. Argument (Theory and Hypotheses)
+6. Research Design and Data
+9. List of References
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Structure of the Dissertation
+
+1. Title
+2. Abstract 
+3.  Introduction
+4.  Literature Review
+5. Theory and Hypotheses
+6. Research Design and Data
+7.  Findings and Analysis  
+8.  Conclusion
+9. List of References
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Proposal vs. Dissertation
+- The proposal is considered to be the first draft of the dissertation. 
+- You can reuse the proposal materials in the final dissertation.
+- Not all elements of the dissertation are included in the proposal 
+	- e.g. no abstract, analysis, findings, and conclusion in the proposal
+- It is possible to change and revisit any element of the proposal in the actual dissertation.
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Title
+### 
+- Choose a title that explains what the dissertation is about.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Writing the Abstract
+
+- An abstract is a condensed summary of your work that is placed at the beginning of a paper.
+- Length: about 200 words.
+- Required only in the final dissertation, not in the proposal
+- Four key pieces of information:
+	- a statement of the research question;
+	- the relevance or importance of the research question;
+	- the methods used to answer the research question;
+	- the research paper’s overall conclusions.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Writing the Introduction
+- **Suggested Length:** 500 (for the proposal)/800 words (for the dissertation)
+- **Problem Statement:** 
+	- **Topic:** What is the topic explored in this research paper? 
+	- **Motivation for the project:**  Why is it worth investigating? Introduction should capture the reader’s interest
+- **Research question:** _What is the research question answered in this research paper?_ (**Note**: Please indicate only **one** research question)
+- **Solution**  
+	- Summarise the ways that you are likely to go about finding evidence and answering these questions.
+	- Summarise briefly your  **argument** and the **empirical strategy**.
+- **Conclusion/Findings**  (only in the dissertation, not in the proposal)
+	- A research paper is not a mystery novel; do not keep your audience guessing as to what the takeaway message will be.
+	- By providing some conclusions up front, someone who reads your paper will be able to understand how you reached your conclusions much more effectively
+
+##
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## History or Information on the Topic or Case (Optional)
+- **Suggested Length:** 500-1000 words
+- **Tip:** Include key information on what we need to know about the topic or case here.
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Writing a Literature Review
+
+- **Suggested Length:** 1000-2000 words 
+- What has the **existing scholarship** said about your **question**?  what are the areas of agreement/disagreement/gaps in this scholarship?
+- **Tips** 
+	- Make sure all literature you are reviewing is **related** to the phenomenon you are analysing. 
+	- Make sure you **group** research by the area of agreement/disagreement across the main explanations. You should review the literature **as _a whole_** rather than summarizing individual readings.
+	- Make sure you use this to establish how **your analysis** will related to the literature.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Literature outside of the Literature Review  
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Theory** section could make reference to existing studies that advanced a certain theory you want to test
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Research Design** section could discuss how your approach/data/conceptual and operational definition build upon or differ from other existing studies
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Conclusion** could discuss how the findings support or refute observations that have already been made by other scholars.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Argument
+- **Suggested Length:** 500-800 words 
+- **Tip:** This is where you present your tentative argument for addressing the research question. What is the main hypothesis (or hypotheses) explored in this research paper?
+- **Tip:** Include literature here that help you justify your argument.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Writing your Research Strategy
+
+- **Suggested Length:** 500-800 words 
+- The methods section in a research paper briefly outlines how a researcher answered the research question.
+- Research Strategy
+	- Which research design will you employ to answer your question and investigate your argument?
+- Case Selection
+	- Which units/cases will you analyse in order to investigate your hypothesis? How have these been selected?  
+- Data Collection
+	- What type of evidence you will analyze to investigate your hypothesis?
+	- You should discuss the specific type of data that you intend to collect (proposal)/ have collected (dissertation) to investigate your argument
+- Data Analysis
+	- You should specify what approach (qualitative or quantitiative) you have used to analyze the data
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Research Ethics
+- Some kind of data collection and data analysis strategy require prior research ethics approval from City to assess how the study could affect you and other human subjects:
+	- interviews, 
+	- focus groups, 
+	- surveys
+	- ethnographic approach.
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Studies of already available data that does not involve interaction with human subjects (e.g. analysis of documents, historical sources, stats) does not require ethical approval
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Please see the link on the Moodle page: https://www.city.ac.uk/research/ethics/how-to-apply/ethical-approval-of-research
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Writing Your Analysis (only in the final dissertation)
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Results and discussion section of a paper provide evidence as to whether you can confirm your hypotheses and support your theory.
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->The results section is usually the lengthiest part of a research paper since it is where you present the tangible findings from your analysis.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### How to present your findings
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->You should avoid using the word “prove” in your writing.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Often better to use phrases such as “the results suggest” or “the findings imply"
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Negative findings (evidence does not support theory)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->A negative finding may be disappointing, but it is still a finding
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Discuss reasons for which your findings may have gone contrary to expectation and to engage in ex post theorizing if you believe your theory needs revision.
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Writing Your Conclusion
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Refer back to the research question.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Now that you have completed your research, how well have you addressed your issue? Reiterate whether you were able to support your hypotheses with the data you analyzed
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Summarize the main findings
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Acknowledge your project’s limitations and weaknesses
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Provide the reader an idea of how the research could have been improved and whether new questions based on the research findings have emerged.
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Generalization
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Discuss how the findings from the research can be generalized to other cases.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## References
+- Reference list does not count against word limit 
+- Add here only the bibliographical references of the sources cited in the proposal, not of all of the sources you have read in preparing the proposal.
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Plagiarism**: Verify that you have included citations to sources for all factual statements, claims, and assertions that come from other sources and research. Otherwise, this is plagiarism.
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Self-Plagiarism**: Do not reuse text from assignments for other modules
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->You can only reuse text  from the dissertation proposal to the final dissertation
+
+
+##
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Writing Tips
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->The “**I**” Debate: can I write in first person?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Most often a researcher will use the first person in specific sections of a research report, such as the introduction, theory and hypotheses, methods and data, or results and discussion.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Researchers should not use the first person in the literature review (Do not, for example, begin your literature review with “I reviewed six studies for my research and found that . . .”)
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Writing Sequence**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Researchers do not write their papers in order from the abstract to the conclusion.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->the introduction to the paper should among the last sections to be written for a paper, after the re- search is complete and the researcher knows exactly what the paper’s conclusions are.
+</div></script></section><section  data-markdown><script type="text/template">## </script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+	      RevealPointer,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"fade","transitionSpeed":"slow"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
