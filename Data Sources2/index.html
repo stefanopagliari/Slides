@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/Stefano.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Finding and Evaluating Data Sources
+
+Stefano Pagliari
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Type of Data
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+- Government Data/Text (e.g. laws, policies)
+- Survey Data (e.g. Public Opinion polls)
+- Interview and Focus Group transcripts/recording
+- Archival Materials (documents, objects, recordings)
+- Oral/Written Speeches/Announcements/Briefings
+- Pictures/Photos/Movies
+- News Media (headlines, articles)
+- Social Media (blogs, twitter, Facebook, Instagram posts)
+- Experimental Data (e.g. experiments run by social scientists, companies, government agencies, NGOs)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Quantitative vs. Qualitative Data
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quantitative Data
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Information can be translated into numeric form
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Useful for showing patterns that occur, on average, across the units of analysis for example, country, party, person)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Quantitative Data
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Some quantitative data is inherently numeric
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Data on country economic context
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Data on political party votes
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->But not all quantitative data starts as numbers
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Survey data starts as questions which are translated into quantitative data
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Laboratory experiment data starts with the experiment whose results are translated into quantitative data
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Data on the content of oral/written text (e.g. speeches) are measures/categorized/coded and then translated into quantitative data
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Type of Quantitative Data: Level
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Quantitative information can be collected at different levels of analysis
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Macro**-level data: aggregated or system level data
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->E.g. Country-level data from the World Bank, IMF
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Meso**-level data: collective-actor data
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Data on political parties, unions, companies
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->**Micro**-level data: individual level data on individual people
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Survey data that polls many individual people
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->Lab and field experiments that collect data on many individuals
+</div></script></section><section data-markdown><script type="text/template"></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Qualitative Data
+- Information that is not converted into numbers
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Types of Qualitative Data
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Interview data: extended interviews with fewer people
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Participant observation data: watching something happen (like a political process) and taking notes on how/why it happens
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Written/Visual Data: documents like 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->secondary sources, 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->newspaper article archives, 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->government party/organization archives; photos
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->pictures/live recordings
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Usefulness of Qualitative Data
+- to understand what/how/why something happened
+- to understand the meaning or intensity or characteristics of something
+- to provide in-depth analysis of specific cases
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Data Credibility
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### What Makes Data Credible?
+
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Data must be credible
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->credible in its source
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->credible in its collection
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->credible in its content
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->credible in its coverage
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Credible Factual Data Sources
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Government ministries, parliaments and public agencies
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->collect census, social, fiscal, electoral archives to run government
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->technocrats are charged with data collection and management
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->International Organizations (UN and regional associations, WTO and regional trade blocks)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->compile and clean data from national governments
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->generate their own data collection initiatives to support their endeavours
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Credible Factual Data Sources
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Non-Governmental Organizations (e.g. Transparency International, Freedom House)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->collect data according to their missions or needs
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Corporations (Economist Intelligence Union, Moody's)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->generate and collect data according to their research needs
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->News and Social Media
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->generate and collect data according to their research needs
+- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Universities/Academics (building datasets and sharing them online)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Ensuring Credibility in Other Data
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Your research might rely on other type of data
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Interviews and Focus Groups
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Historical Archives
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Written/Oral Speeches/Text
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Visual/Oral Arts/Photos/Music
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Social Media Content
+- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Even so, you must ensure their credibility
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Evaluating Documents (Bryman & Bell 2019)
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Who produced the document?
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Why was the document produced?
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Was the person or group who produced the document in a position to write authoritatively about the subject?
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Is the material genuine?
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Did the author have an axe to grind or a particular slant to promote?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Evaluating Documents (Bryman & Bell 2019)
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Is the document typical of its kind? If not, is it possible to establish how atypical it is and in what ways?
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Is the meaning of the document clear?
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Can the events or accounts presented in the document be corroborated?
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Are there different interpretations of the document from the one you offer? If so, what are they? Have you discounted them? If so, why?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Publicly Available vs. Non-Publicly available Sources
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Open source and reviewable
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Shared personally but reviewable and shareable
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Paywalled but obtainable and reviewable
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Not obtainable and not reviewable sources
+</div></script></section><section data-markdown><script type="text/template">
+
+
+</script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Examples of Online Data Sources
+
+This section provides a list of some of the most commonly used databases capturing key political and economic trends at the domestic and international level.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Data Warehouses
+- [Our World in Data](https://ourworldindata.org/)
+- [Gapminder](https://www.gapminder.org)
+- [The International Political Economy Data Resource](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/X093TV)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Political Institutions and Political Regimes
+
+- [Varieties of Democracy](https://www.v-dem.net)
+- [Freedom House - Freedom in the World Report](https://freedomhouse.org/countries/freedom-world/scores)
+- [Polity Project]( http://www.systemicpeace.org/polityproject.html)
+- [Inter-American Development Bank - The Database of Political Institutions 2017](https://publications.iadb.org/en/database-political-institutions-2017-dpi2017)
+- [Cheibub, Gandhi, and Vreeland (2010) "Data for 'Democracy and Dictatorship Revisited"](https://sites.google.com/site/joseantoniocheibub/datasets/dd?authuser=0)
+- Barbara Geddes, Joseph Wright, and Erica Frantz. 2014.  [Autocratic Regime Data](https://sites.psu.edu/dictators/). 
+- Axel Hadenius, Jan Teorell, & Michael Wahman, [Authoritarian Regimes Dataset (ARD)](https://sites.google.com/site/authoritarianregimedataset/data/)
+- Marquez, [Democracy Data](https://github.com/xmarquez/democracyData)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Country Election
+- [ElectionGuide](https://www.electionguide.org)
+- [European Election Database](https://nsd.no/european_election_database/ )
+- [LAEDA Latin American Electoral Data](http://lanic.utexas.edu/laeda/directories/electoral/)
+- [African Election Database](https://africanelections.tripod.com/index.html)
+- [British General Election Constituency Results](https://www.pippanorris.com/data/)
+- [Global Election Calendar](https://www.ndi.org/elections-calendar)
+- [Global Election Database](http://www.globalelectionsdatabase.com)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Political Parties
+- [Global Party Survey](https://www.pippanorris.com/data/)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Public Opinion Data
+- [US Presidential Approval - Roper Center](https://ropercenter.cornell.edu/presidential-approval) 
+- [Gallup Presidential Job Approval Center](https://news.gallup.com/interactives/185273/presidential-job-approval-center.aspx)
+- [The American Presidency Project - Presidential Job Approval](https://www.presidency.ucsb.edu/statistics/data/presidential-job-approval)
+- [American National Election Studies](https://electionstudies.org/data-center/)
+- [Executive Approval Project](http://www.executiveapproval.org)
+- [LAPOP](https://www.vanderbilt.edu/lapop/)
+- [Afrobarometer](https://www.afrobarometer.org)
+- [Comparative Study of Election Systems](https://cses.org)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Values and Social Surveys
+- [World Value Survey]( http://www.worldvaluessurvey.org/wvs.jsp)
+- [European Social Survey](http://www.europeansocialsurvey.org/data/)
+- [International Social Survey Programme](http://www.issp.org/menu-top/home/)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Government Macroeconomic and Financial Data
+- [International Monetary Fund's Government Finance Statistics (GFS)](https://data.imf.org)
+- [World Bank, Open Database]( https://data.worldbank.org)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Government Debt
+- [World Bank's International Debt Statistics](https://databank.worldbank.org/source/international-debt-statistics)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Inequality
+- [World Wealth and Income Database (WID.world)](https://wid.world), accessible through [wid-r-tool](https://github.com/WIDworld/wid-r-tool) package
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Foreign Direct Investment
+- [International Trade Center - Investment Map](https://www.investmentmap.org/investment/data-availability)
+- [United Nations Conference on Trade and Development](https://unctadstat.unctad.org/EN/About.html)
+- [Eurostat](https://data.europa.eu/data/datasets/yhbrm1ogp8hhk9qur4hnpq?locale=en)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Trade and Tariff Data
+- [World Trade Organization - Trade and Tariff Data](https://www.wto.org/english/res_e/statis_e/statis_e.htm)
+- [International Monetary Fund Direction of Trade Statistics](https://data.imf.org/?sk=9D6028D4-F14A-464C-A2F2-59B2CD424B85)
+- [United Nations Comtrade Labs](https://comtrade.un.org)
+- [World Bank's TC Data Initiative](https://tcdata360.worldbank.org)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Remittances
+- [World Bank - Migration and Remittances Data](https://www.worldbank.org/en/topic/migrationremittancesdiasporaissues/brief/migration-remittances-data)
+- [United Nations Conference on Trade and Development - Personal Remittances](https://unctadstat.unctad.org/wds/TableViewer/tableView.aspx?ReportId=86)
+- [Migration Policy Institute - Remittances Data](https://www.migrationpolicy.org/programs/data-hub/global-remittances-guide)
+- [KNOMAD,  Global Knowledge Partnership on Migration and Development](https://www.knomad.org/data/remittances)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Corruption, Accountability and Rule of Law
+- [Transparency International Corruption Perceptions Index](https://www.transparency.org/en/cpi/2020/index/nzl)
+- [Transparency International Global Corruption Barometer](https://www.transparency.org/en/gcb)
+- [World Bank - Worldwide Governance Indicators (WGI) ](https://info.worldbank.org/governance/wgi/)
+- [World Bank - Transparency, Accountability and Corruption in the Public Sector](https://data.worldbank.org/indicator/IQ.CPA.TRAN.XQ)
+- [OECD - Access to Justice](https://data.worldbank.org/indicator/IQ.CPA.TRAN.XQ)
+- [World Justice Project Rule of Law Index](https://worldjusticeproject.org/our-work/research-and-data/wjp-rule-law-index-2019)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Violent Crime
+- [United Nations Office on Drugs and Crime](https://dataunodc.un.org)
+- [World Bank - Intentional homicides](https://data.worldbank.org/indicator/VC.IHR.PSRC.P5)
+- [World Population Review - Violent Crime Rates](https://worldpopulationreview.com/country-rankings/violent-crime-rates-by-country)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Organized Crime
+- [United Nations Interregional Crime and Justice Research Institute](http://www.unicri.it/index.php/services/library_documentation/publications/icvs/data)
+- [United Nations Office on Drugs and Crime(https://dataunodc.un.org)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Conflict
+- [Correlates of War](https://correlatesofwar.org)
+- [Peace Research Institute Oslo (PRIO)](https://www.prio.org/data)
+- [PRIO Battledeaths Dataset](https://www.prio.org/data/1)
+- [UCDP/PRIO Armed Conflict Dataset](https://www.prio.org/Data/Armed-Conflict/UCDP-PRIO/)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Terrorism
+- [Global Terrorism Dataset](https://www.start.umd.edu/gtd/access/)
+</div></script></section></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+	      RevealPointer,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"fade","transitionSpeed":"slow"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
