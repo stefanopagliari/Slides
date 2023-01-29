@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/stefano.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# IPM114 
+# Introduction to the Module
+
+Stefano Pagliari
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Key Contacts
+
+
+- **Course Convenor:** _Stefano Pagliari_   
+	- **Email**: [Stefano.Pagliari.1@city.ac.uk](mailto:Stefano.Pagliari.1@city.ac.uk)
+	- **Room**: D522  
+	- **Office Hour**: Tue 14-15; Friday 15-16. Book a meeting using this [link](https://outlook.office365.com/owa/calendar/IPOfficeHours@cityuni.onmicrosoft.com/bookings/)
+- **Course Office:** pgspga@city.ac.uk
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Outline of the Session
+
+1. &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Introduction to Economic Diplomacy
+1. &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Outline of the module
+1. &shy;<!-- .element: class="fragment" data-fragment-index="3" -->How will we learn
+1. &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Assessment
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Introduction to Economic Diplomacy
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Economic Diplomacy
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Definition: *Decision-making and negotiation in international economic relations*
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Different from
+	- ­**Commercial Diplomacy:** use of diplomatic resources to help private business firms
+	- **­Economic Statecraft:** use of economic institutions and tools in pursuit of foreign policy aims (e.g. economic sanctions)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Economic Diplomacy: The Roots
+
+
+
+<img src="Resources/Attachments/Pasted image 20230128094348.png" alt="" style="width: 300px; object-fit: fill">
+
+
+> “*It could be contended in fact that diplomacy as an organized profession owed as much to commercial interests as to political interests … The Venetian diplomatic service, which undoubtedly laid the foundations of professional diplomacy was in its origin a commercial machinery*" (Harold Nicholson, Diplomacy)
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Economic Diplomacy Now and Then: The Differences
+
+1. Globalization
+2. States and Distribution of Power
+3. Domestic Politics
+4. Non-State Actors
+5. International Institutions
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Economic Diplomacy Now and Then: Globalization
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Past:** Limited economic interconnectedness
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Today:** Globalization
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->­International activities affect more and more of a country’s economy.
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Expansion in the **agenda**:
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->­Investment and competition,
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->­Intellectual property rights,
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->­Services and E-commerce,
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->­Currencies and Exchange Rates,
+	- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->­Financial Regulation
+	- &shy;<!-- .element: class="fragment" data-fragment-index="10" -->­Foreign Aid
+	- &shy;<!-- .element: class="fragment" data-fragment-index="11" -->­Environmental policies
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Economic Diplomacy Now and Then: States
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Past**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->­Bretton Woods era (1944-1970s): **US** as the world’s leading multilateralist
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->­1990s/2000s: end of the Cold War and economic liberalization in the **South**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->­Rise of **China** and emerging markets
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->**Today**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->­**Number** of states increased by 300% in the last 70 years
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->­More **heterogeneous** countries engaged in international economic issues
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->­**Diffusion of Power** in the World Economy
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example: Club Diplomacy over the Years
+
+<img src="Resources/Attachments/Pasted image 20230128104715.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example: Club Diplomacy over the Years
+
+<img src="Resources/Attachments/Pasted image 20230128104814.png" alt="" style="width: 600px; object-fit: fill">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example: Club Diplomacy over the Years
+
+<img src="Resources/Attachments/Pasted image 20230128104931.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Economic Diplomacy Now and Then: Domestic Politics
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Past**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->­Focus on measures taken “at the border”
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->­Economic diplomacy dominated by permanent officials
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Today**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->­Policies “within the border” 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->­Greater diversity of domestic ministries and public agencies
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->­Ministers and heads of government active alongside their officials
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Economic Diplomacy Now and Then: Non-State Actors Politics
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Past**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->­Business groups lobbying governments at domestic level
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Today:** 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Greater diversity of non-state actors engaged in economic diplomacy
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->­Interaction between non-state actors and international organizations
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->­New governance arrangements (“Private governance” “Public-Private Partnership”, etc…)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Economic Diplomacy Now and Then: International Institutions
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Past**:
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->­1951: 123 IGOs
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Today**
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->­2011: 7608 IGOs
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Type of International Institutions in Economic Diplomacy
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Bilateral (two parties)
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Regional (contiguous countries)
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Plurilateral: negotiations between like-minded states 
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Multilateral (global membership)
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+<img src="Resources/Attachments/CleanShot 2023-01-28 at 11.13.41@2x.png" alt="" style="object-fit: scale-down">
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Outline of the Module
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Week 2: States and Power and Economic Diplomacy 
+<img src="Resources/Attachments/Pasted image 20230128111733.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Week 3: International Institutions and Economic Diplomacy  
+
+<img src="Resources/Attachments/Pasted image 20230128111800.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Week 4: Domestic Politics and Economic Diplomacy
+<img src="Resources/Attachments/Pasted image 20230128111822.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Week 5: Non-State Actors and Economic Diplomacy
+
+<img src="Resources/Attachments/Pasted image 20230128111913.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Week 7: Trade Diplomacy
+
+<img src="Resources/Attachments/Pasted image 20230128111939.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Week 8: Investments Diplomacy
+
+<img src="Resources/Attachments/Pasted image 20230128112020.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Week 9: Climate Diplomacy
+
+<img src="Resources/Attachments/Pasted image 20230128112102.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Week 10: Energy Diplomacy
+
+<img src="Resources/Attachments/Pasted image 20230128112054.png" alt="" style="object-fit: scale-down">
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Week 11: Currency Diplomacy
+
+<img src="Resources/Attachments/Pasted image 20230128112153.png" alt="" style="object-fit: scale-down">
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## How will we Learn: Workshop
+
+- Tuesday 3-5pm
+- Lecture + Small group activities
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## How will we Learn: Readings
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Types of Readings
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->­Required Readings (compulsory before class)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->­Additional readings (for the essay)
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->How to access the readings?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->­Moodle page of the course
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->­All required readings available online
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Assessment
+- **Length**: 3000-word (bibliography excluded) +/- 10%  
+- **Deadline**: 5 May 2023
+- **Weight**: 100%
+- **Mark Release Date**: 5 June 2023
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Question
+> Analyse one or more international economic policies, negotiations, or organisations through the lens of the political economy literature and theories.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Requirement 1: Analyse one or more international economic policies, negotiations, or organisations
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### International economic policies  
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->E.g. US decision to withdraw from Transpacific Partnership ­ 
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->E.g. Chinese policies to internationalise the Yuan 
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->E.g. content of IMF conditional lending  
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->AIIB programmes
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### International economic agreement ­ 
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->E.g. Paris Agreement on climate change  
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->E.g. EU-Canada Trade Agreement  
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->E.g. Basel Agreement
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->E.g. WTO Doha Development Round
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### International economic organisation ­ 
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->E.g. WTO,
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->E.g. OPEC  
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->E.g. IMF, World Bank, Asian Development Bank
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Single Case Study vs. Comparative Analysis
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Both single-case or comparative analysis of different cases is possible
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### What can I compare?
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Compare between different agreements in the same domain ­ 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->E.g. Kyoto Agreement vs Paris Agreement
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Compare between different domestic policies in the same area ­ 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->E.g. EU vs. Chinese response to US tariffs
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->E.g. China vs. Brazil role in the multilateral trade negotiations
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### What can I compare?
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Compare between different time periods
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->E.g. Obama vs. Trump approach to climate change negotiations  
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Compare between different organizations operating in the same domain
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->E.g. World Bank vs. Asian Investment and Infrastructure Bank
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Compare between different domains ­ 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->E.g. IMF vs. World Bank  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->E.g. WTO vs. IMF
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Focus of the Empirical Analysis
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Rather than trying to discuss everything related to a given organization/negotiation/agreement, you should identify the element that is relevant for the literature
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->E.g. WTO  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Do not try to explain everything about the WTO. You could explain ­ E.g. The content of a negotiating round  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->E.g. The success/lack of success of negotiations  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->E.g. The work of the Dispute Settlement Body
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->The paper should explain why the problem you are tackling is important
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Requirement 2: "Through the lens of the Political Economy Literature and Theories"
+ 
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Week 2: States and Power  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" --> E.g. Diffusion of power  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->E.g. Sources of state of power in economic diplomacy ­ 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->E.g. Hegemonic Stability Theory
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Week 3: International Institutions ­ 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->E.g. Design of international institutions ­ 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->E.g. Institutional Choice  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->E.g. Regime Complexity
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Requirement 2: "Through the lens of the Political Economy Literature and Theories"
+ 
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Week 4: Domestic Politics  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->E.g. Sources of domestic attitudes towards economic diplomacy  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->E.g. Interaction between domestic and international level (Two-level game) ­ 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->E.g. Transgovernmental relations  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->E.g. Role of domestic institutions in shaping economic diplomacy
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Week 5: Non-State Actors  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->E.g. Role and determinants of power of business groups  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="8" -->E.g. Role and determinants of power of NGOs  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="9" -->­E.g. Role and determinants of power of private governance
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Use Theory to Explain your cases
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->The purpose of the paper is to identify the main forces that influenced the case you have chosen
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->­Use the existing explanations (or develop new ones) to explain your case study
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->How many explanations/theories?  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->You could test different competing arguments from the literature 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Or you could focus on a single explanation that you find particularly important
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->In this case show you are familiar with the broad literature, beyond the one informing your argument, and explain why you chose a specific argument
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Requirement 3: Readings
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Read beyond the required readings and the lecture notesa
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->consult additional readings on Moodle
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Cite and Discuss at least 10 among the required and additional readings from this module (2 points deducted for each missing reading)
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->At least 5 of these 10 readings need to be from the required readings from this module (2 points deducted for each missing reading)
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->But don’t limit your readings to these 10
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Avoid discussing literature that is irrelevant to explaining the policy/area you selected
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Referencing and Bibliography
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Non-academic sources are welcome but ­ 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->consider the quality of the source  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Need to engage with academic literature
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Be consistent  
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Word count does not include bibliography
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Standard Structure of the Paper
+
+- Introduction  
+	- Objective (what you will explain; why this matters)  
+	- Structure of the paper 
+	- Summary of the argument/findings
+- Theory  
+	- Review of the theories related to the paper's argument 
+- Empirics  
+	- Discussion of case study  
+	- Use of evidence to illustrate/test/evaluate the argument
+- Conclusion  
+- Bibliography
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Plagiarism
+- Each element of the essay that draws substantially from another source must be referenced. No matter if you translate it or rephrase it a little.
+- Self-plagiarism (drawing from previous assignment) is plagiarism.
+- Direct quotes need to be in “...” and with reference, always.
+- Indirect quotes (i.e. you rephrased the content) need no “...” but still a reference, or it’s plagiarism.
+- Common knowledge statements (e.g. China is one of the BRICSs) do not require references
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Receiving Feedback
+
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->I'm available to provide feedback on an outline of your essay. The feedback will relate 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->to­ the clarity of the structure,  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->whether the literature chosen is relevant for the question  
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->whether the empirical evidence chosen is relevant for the question.
+- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Please submit on Moodle an outline of the content of your essay up to 300 words before the end of the term.
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Things to Avoid
+- No point to the essay; central theme/ thread/ point of the essay unclear throughout
+- Bad structure: confuses, takes away from your argument: be clear  
+- No references. Fake references. References you have never looked at.
+- Purely descriptive – no analysis
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Things to Avoid (continued)
+
+- Purely theoretical – no empirical evidence to support the argument
+- Discuss literature and evidence that is not directly related to the question
+- Discuss literature and evidence that is not directly related to the module 
+	- Conclusion not justified by the material in the preceding sections of the essay
+</div></script></section></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+	      RevealPointer,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"fade","transitionSpeed":"slow"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
