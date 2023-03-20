@@ -1,0 +1,72 @@
+---
+title: "IP2038 Assessment"
+format: pdf
+editor: visual
+execute:
+  echo: true
+  output: true
+  messages: false
+  warning: false
+---
+
+<!-- More information on how to complete the different components of the assignment at https://stefanopagliari.info/Notes/IP2038+Assessment+Guidance+2022-23 -->
+
+# 1. Summary of the Selected Indicator
+<!-- Approx 300-400 words + 1 visualization or summary table-->
+
+ 
+
+```{r 1.A Code Chunk}
+#Load packages
+library(tidyverse)
+
+#Download the csv file
+
+
+```
+
+ 
+
+------------------------------------------------------------------------
+
+# 2. Across Countries Comparison
+<!-- Approx 300-400 words + 1 visualization -->
+
+```{r 2.A Code Chunk}
+ 
+
+```
+
+ 
+
+------------------------------------------------------------------------
+
+# 3. Across Time Analysis
+<!-- Approx 300-400 words + 1 visualization-->
+
+```{r 3.A Code Chunk}
+  
+
+ 
+```
+
+
+
+------------------------------------------------------------------------
+
+# 4. Association With Other Economic or Political Factors.
+<!-- Approx 300-400 words + 1 visualization-->
+
+```{r 4.A Code Chunk}
+
+
+
+```
+
+ 
+
+------------------------------------------------------------------------
+
+# 5 Conclusion: what have we learnt through the analysis of this data? 
+<!-- Approx 200-300 words-->
+
