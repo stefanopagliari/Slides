@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title></title>
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="css/stefano.css" id="theme" />
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="plugin/customcontrols/style.css">
+
+	<link rel="stylesheet" href="plugin/reveal-pointer/pointer.css" />
+
+
+    <script defer src="dist/fontawesome/all.min.js"></script>
+
+	<script type="text/javascript">
+		var forgetPop = true;
+		function onPopState(event) {
+			if(forgetPop){
+				forgetPop = false;
+			} else {
+				parent.postMessage(event.target.location.href, "app://obsidian.md");
+			}
+        }
+		window.onpopstate = onPopState;
+		window.onmessage = event => {
+			if(event.data == "reload"){
+				window.document.location.reload();
+			}
+			forgetPop = true;
+		}
+
+		function fitElements(){
+			const itemsToFit = document.getElementsByClassName('fitText');
+			for (const item in itemsToFit) {
+				if (Object.hasOwnProperty.call(itemsToFit, item)) {
+					var element = itemsToFit[item];
+					fitElement(element,1, 1000);
+					element.classList.remove('fitText');
+				}
+			}
+		}
+
+		function fitElement(element, start, end){
+
+			let size = (end + start) / 2;
+			element.style.fontSize = `${size}px`;
+
+			if(Math.abs(start - end) < 1){
+				while(element.scrollHeight > element.offsetHeight){
+					size--;
+					element.style.fontSize = `${size}px`;
+				}
+				return;
+			}
+
+			if(element.scrollHeight > element.offsetHeight){
+				fitElement(element, start, size);
+			} else {
+				fitElement(element, size, end);
+			}		
+		}
+
+
+		document.onreadystatechange = () => {
+			fitElements();
+			if (document.readyState === 'complete') {
+				if (window.location.href.indexOf("?export") != -1){
+					parent.postMessage(event.target.location.href, "app://obsidian.md");
+				}
+				if (window.location.href.indexOf("print-pdf") != -1){
+					let stateCheck = setInterval(() => {
+						clearInterval(stateCheck);
+						window.print();
+					}, 250);
+				}
+			}
+	};
+
+
+        </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+# Organizing, Editing, and Revising your Dissertation
+
+Stefano Pagliari
+
+IP3017
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Structure of the Dissertation Proposal
+
+1. Title
+3.  Introduction
+4.  Literature Review
+5. Argument (Theory and Hypotheses)
+6. Research Design and Data
+9. List of References
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Structure of the Dissertation
+
+- Tentative Structure
+	1. Title
+	2. Abstract 
+	3.  Introduction
+	4.  Literature Review
+	5. Theory and Hypotheses
+	6. Research Design and Data
+	7.  Findings and Analysis  
+	8.  Conclusion
+	9. List of References
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Proposal vs. Dissertation
+
+- You can reuse the proposal materials in the final dissertation.
+- It is possible to change and revisit any element of the proposal in the actual dissertation.
+- Additional Elements found in the final dissertation
+	- abstract, 
+	- analysis and discussion of findings
+	- conclusion
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Introduction
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Should be a summary of the whole dissertation. 
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Suggested length: 800 words
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Possible structure
+	- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->**Problem Statement:** What is the **topic** explored in this research paper? Why is it worth investigating? 
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->**Research question and existing literature:** What is the **research question** answered in this research paper? What others in the **literature** have said about this question?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->**Your answer**: What is the **argument** you have explored? What **methods** and **evidence** you have analyzed to answer your question? What were your **findings**?
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->**Roadmap**: outline the structure of the dissertation and how you
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Optional Section: History or Information on the Topic or Case
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Not always necessary
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Content: facts that we need to know to understand your work
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Example 1:
+	- Research question: Why did farmers voted for Brexit?
+	- This section: information on EU subsidies that British farmers received
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Example 2:
+	- Research question: Why did Russia invade Ukraine?
+	- This section: facts on Russia's invasion of Ukraine
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Literature Review
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Suggested Length: 2000/3000 words
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->What has the **existing scholarship** said about your **question**?  w(exact or similar version)
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Tips
+	- Organize/categorize what literature is out there (e.g. what are the areas of agreement/disagreement/gaps in this scholarship?)
+	- You should review the literature **as _a whole_** rather than summarizing individual readings separately.
+	- Last paragraph should point to how your analysis build upon/contribute/differ/relates to this literature
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example Literature Review
+- Research Question: why did farmers voted for Brexit?
+- Literature Review
+	- Existing explanations on why did people vote for Brexit?
+	- Existing literature on do people vote
+	- Existing literature on how do farmers vote
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Literature outside of the Literature Review  
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Theory** section could make reference to existing studies that advanced a certain theory you want to test
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->**Research Design** section could discuss how your approach/data/conceptual and operational definition build upon or differ from other existing studies
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->**Conclusion** could discuss how the findings support or refute observations that have already been made by other scholars.
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Argument
+
+- Your response to your research question
+- Example: 
+	- Question: Why did farmers voted for Brexit?
+	- Argument: farmers' associations convinced farmers that leaving the EU would be better for them
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Research Design
+- Case Selection
+	- Which units/cases will you analyse in order to investigate your hypothesis? How have these been selected?  
+- Data Collection
+	- What type of evidence you will analyze to investigate your hypothesis?
+	- You should discuss the specific type of data that you intend to collect (proposal)/ have collected (dissertation) to investigate your argument
+- Data Analysis
+	- You should specify what approach (qualitative or quantitiative) you have used to analyze the data
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example
+- Research Question: Why did farmers voted for Brexit?
+- Research design:
+	- Case Study of Brexit
+	- Time-frame: 2 years before the Brexit Vote
+	- Evidence: review of farmers' associations documents and press statements
+</div></script></section></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Empirical Analysis
+- Results and discussion section of a paper provide evidence as to whether you can confirm your initial hypothesis and support your theory.
+	- If argument is X led to Y, then show how/whether X led to Y
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->The results section is usually the lengthiest part of a research paper since it is where you present the tangible findings from your analysis.
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Example
+
+- **Question:** Why did farmers voted for Brexit?
+- **Argument:** farmers' associations convinced farmers that leaving the EU would be better for them
+- **Analysis**: the document "xyz" of farmers' association ABC stated that EU subsidies would be replaced by British subsidies
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Show, don't Tell
+- Example:
+	- **Question:** Why did farmers voted for Brexit?
+	- **Analysis (tell)**: Farmers' associations falsely told farmers that leaving the EU would benefit them
+	- **Analysis (showing)**: the document "xyz" of farmers' association ABC stated that EU subsidies would be replaced by British subsidies
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Negative Findings
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->What if the evidence does not support theory?
+- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->A negative finding may be disappointing, but it is still a finding
+- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Discuss reasons for which your findings may have gone contrary to expectation and to engage in ex post theorizing if you believe your theory needs revision.
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Writing Your Conclusion
+- &shy;<!-- .element: class="fragment" data-fragment-index="1" -->Refer back to the research question.
+	- &shy;<!-- .element: class="fragment" data-fragment-index="2" -->Now that you have completed your research, how well have you addressed your issue? Reiterate whether you were able to support your hypotheses with the data you analyzed
+	- &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Summarize the main findings
+- &shy;<!-- .element: class="fragment" data-fragment-index="4" -->Acknowledge your project’s limitations and weaknesses
+	- &shy;<!-- .element: class="fragment" data-fragment-index="5" -->Provide the reader an idea of how the research could have been improved and whether new questions based on the research findings have emerged.
+- &shy;<!-- .element: class="fragment" data-fragment-index="6" -->Generalization
+	- &shy;<!-- .element: class="fragment" data-fragment-index="7" -->Discuss how the findings from the research can be generalized to other cases.
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Conclusion
+- Summarize your argument and findings
+- List the limitations and areas for further research
+</div></script></section><section ><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## Tips for Writing and Editing
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Use a model paper
+- No need to re-invent the wheel
+- Model Paper
+	- use for structure
+	- for topic of paragraphs
+	- for connection between paragraphs
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### How do I start?
+- Put the title for each section
+- Bring the content from your research proposal
+- Write a possible first paragraph that summarises the section
+- Start filling in
+- Writing is thinking! Your ideas will become clearer as you write
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Questions When Editing (Form)
+
+- Am I following the dissertation template structure?
+- Is my writing clear? Are my sentences too long and complex?
+- Does the introduction summarizes my dissertation?
+- 1st paragraph: does it summarize the section?
+- Is this necessary?
+- Are there connectors between paragraphs?
+</div></script></section><section data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+### Questions When Editing (Content)
+
+- Is my research question clear?
+- Did I present all the relevant literature?
+- Did I present all the relevant information to understand my work?
+- Does my argument correspond to my research question?
+- Does the evidence correspond to my research question?
+</div></script></section></section><section  data-markdown><script type="text/template"><!-- .slide: class="drop" -->
+<div class="" style="position: absolute; left: 0px; top: 0px; height: 700px; width: 960px; min-height: 700px; display: flex; flex-direction: column; align-items: center; justify-content: center" absolute="true">
+
+## References
+- Make sure you cite everything that is not yours
+- Stick to one citation style
+- You can use a citation software to correctly format your references
+</div></script></section></div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/math/math.js"></script>
+	<script src="plugin/mermaid/mermaid.js"></script>
+	<script src="plugin/chart/chart.min.js"></script>
+	<script src="plugin/chart/plugin.js"></script>
+	<script src="plugin/menu/menu.js"></script>
+	<script src="plugin/customcontrols/plugin.js"></script>
+	<script src="plugin/reveal-pointer/pointer.js"></script>
+
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+	  function isLight(color) {
+		let hex = color.replace('#', '');
+
+		// convert #fff => #ffffff
+		if(hex.length == 3){
+			hex = `${hex[0]}${hex[0]}${hex[1]}${hex[1]}${hex[2]}${hex[2]}`;
+		}
+
+		const c_r = parseInt(hex.substr(0, 2), 16);
+		const c_g = parseInt(hex.substr(2, 2), 16);
+		const c_b = parseInt(hex.substr(4, 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		return brightness > 155;
+	}
+
+	var bgColor = getComputedStyle(document.documentElement).getPropertyValue('--r-background-color').trim();
+	var isLight = isLight(bgColor);
+
+	if(isLight){
+		document.body.classList.add('has-light-background');
+	} else {
+		document.body.classList.add('has-dark-background');
+	}
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.MathJax3,
+		  RevealMermaid,
+		  RevealChart,
+		  RevealCustomControls,
+		  RevealMenu,
+	      RevealPointer,
+        ],
+
+
+    	allottedTime: 120 * 1000,
+
+		mathjax3: {
+			mathjax: 'plugin/math/mathjax/tex-mml-chtml.js',
+		},
+		markdown: {
+		  gfm: true,
+		  mangle: true,
+		  pedantic: false,
+		  smartLists: false,
+		  smartypants: false,
+		},
+
+		mermaid: {
+			theme: isLight ? 'default' : 'dark',
+		},
+
+		customcontrols: {
+			controls: [
+				{id: 'toggle-overview',
+				title: 'Toggle overview (O)',
+				icon: '<i class="fa fa-th"></i>',
+				action: 'Reveal.toggleOverview();'
+				},
+			]
+		},
+		menu: {
+			loadIcons: false
+		}
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"width":960,"height":700,"margin":0.04,"controls":true,"progress":true,"slideNumber":true,"transition":"fade","transitionSpeed":"slow"}, queryOptions);
+    </script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+
+  <!-- created with Advanced Slides -->
+</html>
