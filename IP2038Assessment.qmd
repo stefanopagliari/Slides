@@ -1,14 +1,10 @@
 ---
 title: "IP2038 Assessment"
-<<<<<<< HEAD
-format: pdf
-=======
 format: 
   html:
     toc: true
     toc-location: left
     embed-resources: true
->>>>>>> 79093ac (Updated files)
 editor: visual
 execute:
   echo: true
@@ -20,16 +16,10 @@ execute:
 <!-- More information on how to complete the different components of the assignment at https://stefanopagliari.info/Notes/IP2038+Assessment+Guidance+2022-23 -->
 
 # 1. Summary of the Selected Indicator
-<<<<<<< HEAD
-
-<!-- Approx 300-400 words + 1 visualization or summary table-->
-
-=======
 <!-- Approx 300-400 words + 1 visualization or summary table-->
 
  
 
->>>>>>> 79093ac (Updated files)
 ```{r 1.A Code Chunk}
 #Load packages
 library(tidyverse)
@@ -39,18 +29,11 @@ library(tidyverse)
 
 ```
 
-<<<<<<< HEAD
-------------------------------------------------------------------------
-
-# 2. Across Countries Comparison
-
-=======
  
 
 ------------------------------------------------------------------------
 
 # 2. Across Countries Comparison
->>>>>>> 79093ac (Updated files)
 <!-- Approx 300-400 words + 1 visualization -->
 
 ```{r 2.A Code Chunk}
@@ -58,18 +41,11 @@ library(tidyverse)
 
 ```
 
-<<<<<<< HEAD
-------------------------------------------------------------------------
-
-# 3. Across Time Analysis
-
-=======
  
 
 ------------------------------------------------------------------------
 
 # 3. Across Time Analysis
->>>>>>> 79093ac (Updated files)
 <!-- Approx 300-400 words + 1 visualization-->
 
 ```{r 3.A Code Chunk}
@@ -78,18 +54,11 @@ library(tidyverse)
  
 ```
 
-<<<<<<< HEAD
-------------------------------------------------------------------------
-
-# 4. Association With Other Economic or Political Factors.
-
-=======
 
 
 ------------------------------------------------------------------------
 
 # 4. Association With Other Economic or Political Factors.
->>>>>>> 79093ac (Updated files)
 <!-- Approx 300-400 words + 1 visualization-->
 
 ```{r 4.A Code Chunk}
@@ -98,13 +67,6 @@ library(tidyverse)
 
 ```
 
-<<<<<<< HEAD
-------------------------------------------------------------------------
-
-# 5 Conclusion: what have we learnt through the analysis of this data?
-
-<!-- Approx 200-300 words-->
-=======
  
 
 ------------------------------------------------------------------------
@@ -112,4 +74,3 @@ library(tidyverse)
 # 5 Conclusion: what have we learnt through the analysis of this data? 
 <!-- Approx 200-300 words-->
 
->>>>>>> 79093ac (Updated files)
